@@ -53,7 +53,7 @@
                     android:paddingTop="3dp"
                     android:text="Contact Us"
                     android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textColor="@android:color/white"/>
+                    android:textColor="#ff1874cd"/>
 
                 <LinearLayout
                     android:id="@+id/aboutContactUsContainer"
@@ -71,7 +71,7 @@
                     android:paddingTop="3dp"
                     android:text="Our Team"
                     android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textColor="@android:color/white"/>
+                    android:textColor="#ff1874cd"/>
 
                 <LinearLayout
                     android:id="@+id/aboutTeamContainer"
@@ -89,7 +89,7 @@
                     android:paddingTop="3dp"
                     android:text="Credits and Thanks"
                     android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textColor="@android:color/white"/>
+                    android:textColor="#ff1874cd"/>
 
                 <LinearLayout
                     android:id="@+id/aboutCreditsContainer"

@@ -3,16 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <PreferenceScreen
-        android:title="Wifi and Data Icon Position" />
+        android:title="Wifi and Data Icon Position">
     <com.wubydax.romcontrol.v2.prefs.MyListPreference
         android:entries="@array/SignalPositionName"
         android:title="Signal Position"
         android:key="leftsignal"
         android:defaultValue="0"
         android:entryValues="@array/SignalPositionValue" />
+    </PreferenceScreen>
 
     <PreferenceScreen
-        android:title="Network traffic preferences">
+        android:title="Network traffic Settings">
         <PreferenceCategory
             android:title="Network data">
             <com.wubydax.romcontrol.v2.prefs.MyListPreference
@@ -98,8 +99,7 @@
     </PreferenceScreen>
 
     <PreferenceScreen
-        android:title="Battery Bar"
-        android:summary="Display Line on top for battery">
+        android:title="Battery Bar Settings">
         <com.wubydax.romcontrol.v2.prefs.MyListPreference
             android:entries="@array/battery_bar_entries"
             android:title="Battery Bar"
@@ -137,126 +137,129 @@
     </PreferenceScreen>
 
     <PreferenceScreen
-        android:title="Vol Skip Settings"/>
-    <com.wubydax.romcontrol.v2.prefs.MySwitchPreference
-        android:title="Use Skip Tracks Mod"
-        android:key="b_skip_tracks"
-        android:defaultValue="true"
-        android:summaryOn="Enabled"
-        android:summaryOff="Disabled" />
-    <com.wubydax.romcontrol.v2.prefs.MyCheckBoxPreference
-        android:title="Kill app checkbox"
-        android:key="b_doble_click_skip_tracks"
-        android:defaultValue="true"
-        android:summaryOn="Enabled"
-        android:summaryOff="Disabled"
-        android:dependency="b_skip_tracks"  />
-    <com.wubydax.romcontrol.v2.prefs.MySeekBarPreference
-        android:title="Long Press TimeOut"
-        android:key="b_timeout_skip_tracks"
-        android:dependency="b_skip_tracks"
-        android:defaultValue="600"
-        app:minValue="300"
-        app:maxValue="1300"
-        app:unitsValue="mSec" />
+        android:title="Volume Key Music Skip Settings">
+        <PreferenceCategory
+            android:title="Vol Skip Settings">
+            <com.wubydax.romcontrol.v2.prefs.MySwitchPreference
+                android:title="Use Skip Tracks Mod"
+                android:key="b_skip_tracks"
+                android:defaultValue="true"
+                android:summaryOn="Enabled"
+                android:summaryOff="Disabled" />
+            <com.wubydax.romcontrol.v2.prefs.MyCheckBoxPreference
+                android:title="Kill app checkbox"
+                android:key="b_doble_click_skip_tracks"
+                android:defaultValue="true"
+                android:summaryOn="Enabled"
+                android:summaryOff="Disabled"
+                android:dependency="b_skip_tracks"  />
+            <com.wubydax.romcontrol.v2.prefs.MySeekBarPreference
+                android:title="Long Press TimeOut"
+                android:key="b_timeout_skip_tracks"
+                android:dependency="b_skip_tracks"
+                android:defaultValue="600"
+                app:minValue="300"
+                app:maxValue="1300"
+                app:unitsValue="mSec" />
+        </PreferenceCategory>
+    </PreferenceScreen>
 
     <PreferenceScreen
-        android:title="Emergency Mode"/>
+        android:title="Power Menu Emergency Mode">
     <com.wubydax.romcontrol.v2.prefs.MySwitchPreference
         android:title="Emergency Mode Button"
         android:key="power_emergency"
         android:defaultValue="true"
         android:summaryOn="Emergency mode will be shown"
         android:summaryOff="Currently removed" />
+    </PreferenceScreen>
 
     <PreferenceScreen
-        android:title="Ongoing Notifications"/>
+        android:title="Ongoing Notifications">
     <com.wubydax.romcontrol.v2.prefs.MySwitchPreference
         android:title="Make Ongoing Notifications Removable"
         android:key="ongoing_notifications"
         android:defaultValue="false"
         android:summaryOn="Ongoing Notifications are removeable"
         android:summaryOff="Ongoing Notifications are permanent" />
-
-    <PreferenceCategory
-        android:title="Device info settings">
-        <PreferenceScreen
-            android:title="Device info customization">
-            <com.wubydax.romcontrol.v2.prefs.MySwitchPreference
-                android:defaultValue="true"
-                android:key="device_info_visibility"
-                android:summaryOff="Disabled"
-                android:summaryOn="Enabled"
-                android:title="Enable device info view"/>
-            <PreferenceCategory
-                android:title="Text colors"
-                android:dependency="device_info_visibility">
-                <com.wubydax.romcontrol.v2.prefs.ColorPickerPreference
-                    android:defaultValue="#ffffffff"
-                    android:key="gear_info_names_color"
-                    android:title="Info names text color"/>
-                <com.wubydax.romcontrol.v2.prefs.ColorPickerPreference
-                    android:defaultValue="#ffffffff"
-                    android:key="gear_info_values_color"
-                    android:title="Info values text color"/>
-            </PreferenceCategory>
-            <PreferenceCategory
-                android:title="Device Info Items"
-                android:dependency="device_info_visibility">
-                <com.wubydax.romcontrol.v2.prefs.MyCheckBoxPreference
-                    android:defaultValue="true"
-                    android:key="device_model"
-                    android:summaryOff="Hidden"
-                    android:summaryOn="Shown"
-                    android:title="Device model"/>
-                <com.wubydax.romcontrol.v2.prefs.MyCheckBoxPreference
-                    android:defaultValue="true"
-                    android:key="device_android_version"
-                    android:summaryOff="Hidden"
-                    android:summaryOn="Shown"
-                    android:title="Android version"/>
-                <com.wubydax.romcontrol.v2.prefs.MyCheckBoxPreference
-                    android:defaultValue="true"
-                    android:key="device_build_version"
-                    android:summaryOff="Hidden"
-                    android:summaryOn="Shown"
-                    android:title="Build version"/>
-                <com.wubydax.romcontrol.v2.prefs.MyCheckBoxPreference
-                    android:defaultValue="true"
-                    android:key="device_battery_level"
-                    android:summaryOff="Hidden"
-                    android:summaryOn="Shown"
-                    android:title="Battery level"/>
-                <com.wubydax.romcontrol.v2.prefs.MyCheckBoxPreference
-                    android:defaultValue="true"
-                    android:key="device_network_name"
-                    android:summaryOff="Hidden"
-                    android:summaryOn="Shown"
-                    android:title="Network name"/>
-                <com.wubydax.romcontrol.v2.prefs.MyCheckBoxPreference
-                    android:defaultValue="true"
-                    android:key="device_wifi_info"
-                    android:summaryOff="Hidden"
-                    android:summaryOn="Shown"
-                    android:title="WIFI info"/>
-                <com.wubydax.romcontrol.v2.prefs.MyCheckBoxPreference
-                    android:defaultValue="true"
-                    android:key="device_next_alarm"
-                    android:summaryOff="Hidden"
-                    android:summaryOn="Shown"
-                    android:title="Next alarm"/>
-                <com.wubydax.romcontrol.v2.prefs.MyCheckBoxPreference
-                    android:defaultValue="true"
-                    android:key="device_up_time"
-                    android:summaryOff="Hidden"
-                    android:summaryOn="Shown"
-                    android:title="Device up time"/>
-            </PreferenceCategory>
-        </PreferenceScreen>
-    </PreferenceCategory>
+    </PreferenceScreen>
 
     <PreferenceScreen
-        android:title="Low/Critical Battery Warning Percentage" />
+        android:title="Device info customization">
+        <com.wubydax.romcontrol.v2.prefs.MySwitchPreference
+            android:defaultValue="true"
+            android:key="device_info_visibility"
+            android:summaryOff="Disabled"
+            android:summaryOn="Enabled"
+            android:title="Enable device info view"/>
+        <PreferenceCategory
+            android:title="Text colors"
+            android:dependency="device_info_visibility">
+            <com.wubydax.romcontrol.v2.prefs.ColorPickerPreference
+                android:defaultValue="#ffffffff"
+                android:key="gear_info_names_color"
+                android:title="Info names text color"/>
+            <com.wubydax.romcontrol.v2.prefs.ColorPickerPreference
+                android:defaultValue="#ffffffff"
+                android:key="gear_info_values_color"
+                android:title="Info values text color"/>
+        </PreferenceCategory>
+        <PreferenceCategory
+            android:title="Device Info Items"
+            android:dependency="device_info_visibility">
+            <com.wubydax.romcontrol.v2.prefs.MyCheckBoxPreference
+                android:defaultValue="true"
+                android:key="device_model"
+                android:summaryOff="Hidden"
+                android:summaryOn="Shown"
+                android:title="Device model"/>
+            <com.wubydax.romcontrol.v2.prefs.MyCheckBoxPreference
+                android:defaultValue="true"
+                android:key="device_android_version"
+                android:summaryOff="Hidden"
+                android:summaryOn="Shown"
+                android:title="Android version"/>
+            <com.wubydax.romcontrol.v2.prefs.MyCheckBoxPreference
+                android:defaultValue="true"
+                android:key="device_build_version"
+                android:summaryOff="Hidden"
+                android:summaryOn="Shown"
+                android:title="Build version"/>
+            <com.wubydax.romcontrol.v2.prefs.MyCheckBoxPreference
+                android:defaultValue="true"
+                android:key="device_battery_level"
+                android:summaryOff="Hidden"
+                android:summaryOn="Shown"
+                android:title="Battery level"/>
+            <com.wubydax.romcontrol.v2.prefs.MyCheckBoxPreference
+                android:defaultValue="true"
+                android:key="device_network_name"
+                android:summaryOff="Hidden"
+                android:summaryOn="Shown"
+                android:title="Network name"/>
+            <com.wubydax.romcontrol.v2.prefs.MyCheckBoxPreference
+                android:defaultValue="true"
+                android:key="device_wifi_info"
+                android:summaryOff="Hidden"
+                android:summaryOn="Shown"
+                android:title="WIFI info"/>
+            <com.wubydax.romcontrol.v2.prefs.MyCheckBoxPreference
+                android:defaultValue="true"
+                android:key="device_next_alarm"
+                android:summaryOff="Hidden"
+                android:summaryOn="Shown"
+                android:title="Next alarm"/>
+            <com.wubydax.romcontrol.v2.prefs.MyCheckBoxPreference
+                android:defaultValue="true"
+                android:key="device_up_time"
+                android:summaryOff="Hidden"
+                android:summaryOn="Shown"
+                android:title="Device up time"/>
+        </PreferenceCategory>
+    </PreferenceScreen>
+
+    <PreferenceScreen
+        android:title="Low/Critical Battery Warning Percentage" >
     <com.wubydax.romcontrol.v2.prefs.MyListPreference
         android:entries="@array/lowbattpercentage_entries"
         android:title="Low Battery Warning Percentage"
@@ -273,122 +276,113 @@
         android:summary="Set the Critical Battery Warning Message Percentage"
         app:rebootDevice="true"
         android:entryValues="@array/critbattpercentage_values" />
+    </PreferenceScreen>
 
     <PreferenceScreen
-        android:title="AOD brightness " />
-    <com.wubydax.romcontrol.v2.prefs.MySeekBarPreference
-        android:title="AOD brightness"
-        android:key="aod_brightness"
-        android:defaultValue="17"
-        app:minValue="0"
-        app:maxValue="255"
-        app:rebootDevice="true" />
+        android:title="AOD brightness " >
+        <PreferenceCategory
+            android:title="AOD Brightness">
+            <com.wubydax.romcontrol.v2.prefs.MySeekBarPreference
+                android:title="AOD brightness"
+                android:key="aod_brightness"
+                android:defaultValue="17"
+                app:minValue="0"
+                app:maxValue="255"
+                app:rebootDevice="true" />
+        </PreferenceCategory>
+    </PreferenceScreen>
 
     <PreferenceScreen
-        android:title="Show Mem Clean" />
-    <com.wubydax.romcontrol.v2.prefs.MySwitchPreference
-        android:title="Show memCleanView"
-        android:key="pekaka_memCleanView"
-        android:summaryOn="Enabled"
-        android:summaryOff="Disabled" />
-    <com.wubydax.romcontrol.v2.prefs.ColorPickerPreference
-        android:title="Memkiller color"
-        android:key="db_inkeffect_pekaka_memkiller_picker"
-        android:defaultValue="#ff2aff00"
-        alphaSlider="true"
-        hexValue="true" />
-
+        android:title="Memory Cleaner" >
+        <PreferenceCategory
+            android:title="MemClean">
+            <com.wubydax.romcontrol.v2.prefs.MySwitchPreference
+                android:title="Show memCleanView"
+                android:key="pekaka_memCleanView"
+                android:summaryOn="Enabled"
+                android:summaryOff="Disabled" />
+            <com.wubydax.romcontrol.v2.prefs.ColorPickerPreference
+                android:title="Memkiller color"
+                android:key="db_inkeffect_pekaka_memkiller_picker"
+                android:defaultValue="#ff2aff00"
+                alphaSlider="true"
+                hexValue="true" />
+        </PreferenceCategory>
+    </PreferenceScreen>
 
     <PreferenceScreen
-        android:title="Single swipe for Quickpanel" />
+        android:title="Single swipe for Quickpanel" >
     <com.wubydax.romcontrol.v2.prefs.MySwitchPreference
         android:title="Single swipe for Quickpanel"
         android:key="tweaks_qs_pulldown"
         android:defaultValue="true"
         android:summaryOn="Feature is enabled"
         android:summaryOff="Feature is disabled" />
+    </PreferenceScreen>
 
-    <PreferenceCategory
-        android:title="Display Percentage" >
+    <PreferenceScreen
+        android:title="Battery Percentage" >
     <com.wubydax.romcontrol.v2.prefs.MyCheckBoxPreference
         android:title="Display Percentage"
         android:key="display_battery_percentage"
         android:defaultValue="0"
         android:summaryOn="Battery text shown"
         android:summaryOff="Battery text is hidden" />
-    </PreferenceCategory>
+    </PreferenceScreen>
 
-    <PreferenceCategory
-        android:title="Power off" >
+    <PreferenceScreen
+        android:title="Power Menu Power Off" >
     <com.wubydax.romcontrol.v2.prefs.MySwitchPreference
         android:title="Power off"
         android:key="power_menu_power"
         android:defaultValue="true"
         android:summaryOn="on"
         android:summaryOff="off" />
-    </PreferenceCategory>
+    </PreferenceScreen>
 
-    <PreferenceCategory
+    <PreferenceScreen
         android:title="QSSFinder Bar" >
-        <PreferenceScreen
-            android:title="QSSFinder Bar" >
-            <PreferenceCategory
-                android:title="QSSFinder Bar" >
-            <com.wubydax.romcontrol.v2.prefs.MySwitchPreference
-                android:title="QSSFinder Bar"
-                android:key="qs_sfinder_bar_show"
-                android:defaultValue="true"
-                android:summaryOn="Show"
-                android:summaryOff="Hide"
-                app:rebootDevice="true" />
-            </PreferenceCategory>
-        </PreferenceScreen>
-    </PreferenceCategory>
-    <PreferenceCategory
-        android:title="Signal Bar Icon Style" >
-        <PreferenceScreen
-            android:title="Signal bar Icon Style" >
-            <PreferenceCategory
-                android:title="Signalbars" >
-            <com.wubydax.romcontrol.v2.prefs.RunScriptPreference
-                android:title="LTE data icon"
-                app:scriptFileName="csc_lte_icon_enable.sh"
-                app:showConfirmDialog="true"
-                app:rebootOptions="imminent" />
-            <com.wubydax.romcontrol.v2.prefs.RunScriptPreference
-                android:title="4G data icon"
-                app:scriptFileName="csc_lte_icon_disable.sh"
-                app:showConfirmDialog="true"
-                app:rebootOptions="imminent" />
-            </PreferenceCategory>
-        </PreferenceScreen>
-    </PreferenceCategory>
-    <PreferenceCategory
-        android:title="4 or 5 Signal Bars" >
-        <PreferenceScreen
-            android:title="Signalbar 5 Bars or 4 Bars" >
-            <PreferenceCategory
-                android:title="Signalbars" >
-            <com.wubydax.romcontrol.v2.prefs.RunScriptPreference
-                android:title="5 Bar"
-                app:scriptFileName="csc_5bar_enable.sh"
-                app:showConfirmDialog="true"
-                app:rebootOptions="imminent" />
-            <com.wubydax.romcontrol.v2.prefs.RunScriptPreference
-                android:title="4 Bars"
-                app:scriptFileName="csc_4bar_enable.sh"
-                app:showConfirmDialog="true"
-                app:rebootOptions="imminent" />
-            </PreferenceCategory>
-        </PreferenceScreen>
-    </PreferenceCategory>
+    <com.wubydax.romcontrol.v2.prefs.MySwitchPreference
+        android:title="QSSFinder Bar"
+        android:key="qs_sfinder_bar_show"
+        android:defaultValue="true"
+        android:summaryOn="Show"
+        android:summaryOff="Hide"
+        app:rebootDevice="true" />
+    </PreferenceScreen>
 
-    <PreferenceCategory
+    <PreferenceScreen
+        android:title="Signal bar Icon Style" >
+    <com.wubydax.romcontrol.v2.prefs.RunScriptPreference
+        android:title="LTE data icon"
+        app:scriptFileName="csc_lte_icon_enable.sh"
+        app:showConfirmDialog="true"
+        app:rebootOptions="imminent" />
+    <com.wubydax.romcontrol.v2.prefs.RunScriptPreference
+        android:title="4G data icon"
+        app:scriptFileName="csc_lte_icon_disable.sh"
+        app:showConfirmDialog="true"
+        app:rebootOptions="imminent" />
+    </PreferenceScreen>
+
+    <PreferenceScreen
+        android:title="Signalbar 5 Bars or 4 Bars" >
+    <com.wubydax.romcontrol.v2.prefs.RunScriptPreference
+        android:title="5 Bar"
+        app:scriptFileName="csc_5bar_enable.sh"
+        app:showConfirmDialog="true"
+        app:rebootOptions="imminent" />
+    <com.wubydax.romcontrol.v2.prefs.RunScriptPreference
+        android:title="4 Bars"
+        app:scriptFileName="csc_4bar_enable.sh"
+        app:showConfirmDialog="true"
+        app:rebootOptions="imminent" />
+    </PreferenceScreen>
+
+    <PreferenceScreen
         android:title="CM Music Visualizer" >
-        <PreferenceScreen
+        <PreferenceCategory
             android:title="CM Music Visualizer" >
-            <PreferenceCategory
-                android:title="CM Music Visualizer" >
             <com.wubydax.romcontrol.v2.prefs.MyCheckBoxPreference
                 android:title="Music Visualizer"
                 android:key="show_equalizer"
@@ -403,9 +397,8 @@
                 android:defaultValue="0"
                 android:dialogTitle="Select Visualizer"
                 android:entryValues="@array/visualizer_style_values" />
-            </PreferenceCategory>
-        </PreferenceScreen>
-    </PreferenceCategory>
+        </PreferenceCategory>
+    </PreferenceScreen>
 
     <PreferenceScreen
         android:title="Custom bg for IncallUI">
@@ -469,7 +462,7 @@
     </PreferenceScreen>
 
     <PreferenceScreen
-        android:title="Custom bg for IncallUI">
+        android:title="Custom bg for Notification Panel">
         <com.wubydax.romcontrol.v2.prefs.MySwitchPreference
             android:defaultValue="false"
             android:key="noti_enable_gear_custom_bg"
@@ -527,6 +520,29 @@
                 android:key="noti_gear_bg_gradient_orientation"
                 android:title="Gradient orientation"/>
         </PreferenceCategory>
+    </PreferenceScreen>
+
+    <PreferenceScreen
+        android:title="Quick Unlock">
+    <com.wubydax.romcontrol.v2.prefs.MySwitchPreference
+        android:title="Quick Unlock Password"
+        android:key="quick_pass_unlock"
+        android:defaultValue="true"  />
+    <com.wubydax.romcontrol.v2.prefs.MySwitchPreference
+        android:title="Quick unlock PIN"
+        android:key="quick_pin_unlock"
+        android:defaultValue="true" />
+    </PreferenceScreen>
+
+    <PreferenceScreen
+        android:title="Recents AppLock">
+    <com.wubydax.romcontrol.v2.prefs.MySwitchPreference
+        android:title="Recents app lock"
+        android:key="enable_recents_app_lock"
+        android:defaultValue="1"
+        android:summaryOn="Show"
+        android:summaryOff="Hide"
+        app:rebootDevice="true" />
     </PreferenceScreen>
 
 </PreferenceScreen>
