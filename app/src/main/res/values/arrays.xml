@@ -841,5 +841,14 @@
         <item>2</item>
     </string-array>
 
+    <string-array name="carrier_entries">
+        <item>Actual carrier text</item>
+        <item>Custom text</item>
+    </string-array>
+    <string-array name="carrier_entry_values">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+
 
 </resources>
